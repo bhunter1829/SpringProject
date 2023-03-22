@@ -3,10 +3,7 @@ package Inventory.Controller;
 import Inventory.Model.Inventory;
 import Inventory.Service.InventoryService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -17,7 +14,7 @@ spring MVC
 Spring data JPA
 Spring AOP
 Spring Core
-SPring Boot
+Spring Boot
 Spring ORM
  */
 @RestController
@@ -32,9 +29,19 @@ public class InventoryController {
         return inventoryService.getAllInventory();
 
      }
+
      @GetMapping("inventory/{id}")
          public Inventory getInventoryById(@PathVariable("id") long id){
          return inventoryService.getInventoryById(id);
+     }
+
+     @PostMapping("inventory")
+        public Inventory addInventory(@RequestBody Inventory inventory) {
+         return this.inventoryService.addInventory(inventory);
+     }
+     @DeleteMapping("inventory/{id}")
+        public Inventory deleteInventoryByid(@PathVariable("id") long id) {
+        return inventoryService.deleteInventoryById(id);
      }
      /*
      user stories

@@ -40,8 +40,9 @@ public class InventoryService {
     /*
     this will delete an inventory by its id
      */
-    public void deleteInventoryById(long id){
+    public Inventory deleteInventoryById(long id){
          inventoryRepository.deleteById(id);
+        return null;
     }
 
 }
