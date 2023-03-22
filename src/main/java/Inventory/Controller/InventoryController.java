@@ -39,6 +39,10 @@ public class InventoryController {
         public Inventory addInventory(@RequestBody Inventory inventory) {
          return this.inventoryService.addInventory(inventory);
      }
+     @DeleteMapping("inventory/{id}")
+        public Inventory deleteInventoryByid(@PathVariable("id") long id) {
+        return inventoryService.deleteInventoryById(id);
+     }
      /*
      user stories
      as a user I should submit a inventory submission
