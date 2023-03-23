@@ -1,9 +1,8 @@
 package Inventory.Model;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
+import com.fasterxml.jackson.annotation.JsonBackReference;
+import com.fasterxml.jackson.annotation.JsonManagedReference;
+import jakarta.persistence.*;
 import lombok.*;
 
 
@@ -14,14 +13,21 @@ import lombok.*;
 @NoArgsConstructor
 @ToString
 @EqualsAndHashCode
+@Table(name = "inventory")
 public class Inventory {
         @Id
         @GeneratedValue(strategy = GenerationType.IDENTITY)
-        private Long id;
-        private String name;
+        @Column(name = "inventory_id")
+        public Long id;
+        @Column(name = "name")
+        public String name;
 
-        public String getName() {
-                return name;
-        }
+
+        @ManyToOne
+        @JsonBackReference
+        @JoinColumn(name = "departmentFK")
+        public Department department;
+
+
 }
 
