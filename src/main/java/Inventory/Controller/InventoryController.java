@@ -1,6 +1,7 @@
 package Inventory.Controller;
 
 import Inventory.Model.Inventory;
+import Inventory.Projections.InventoryI;
 import Inventory.Service.InventoryService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
@@ -18,6 +19,7 @@ Spring Boot
 Spring ORM
  */
 @RestController
+@CrossOrigin(origins = {"http://localhost:4200", "http://localhost:3000"}, allowCredentials = "true")
 public class InventoryController {
     InventoryService inventoryService;
     @Autowired
@@ -29,6 +31,12 @@ public class InventoryController {
         return inventoryService.getAllInventory();
 
      }
+
+    @GetMapping ("namesInventory")
+    public List<InventoryI> getNamesInventory(){
+        return inventoryService.getNamesInventory();
+
+    }
 
      @GetMapping("inventory/{id}")
          public Inventory getInventoryById(@PathVariable("id") long id){

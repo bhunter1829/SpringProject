@@ -18,8 +18,10 @@ public class Inventory {
         @Id
         @GeneratedValue(strategy = GenerationType.IDENTITY)
         private Long id;
-        private Character name;
+        private String name;
 
-
-
+        public String getName() {
+                return name;
+        }
 }
+
