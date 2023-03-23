@@ -1,6 +1,8 @@
 package Inventory.Service;
 
 import Inventory.Model.Inventory;
+
+import Inventory.Projections.InventoryI;
 import Inventory.Repository.InventoryRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -24,6 +26,9 @@ public class InventoryService {
      */
     public List<Inventory> getAllInventory(){
         return inventoryRepository.findAll();
+    }
+    public List<InventoryI> getNamesInventory(){
+        return inventoryRepository.findNames();
     }
     /*
     this will get a single inventory item by its id
