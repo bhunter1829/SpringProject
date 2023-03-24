@@ -49,6 +49,10 @@ public class InventoryService {
          inventoryRepository.deleteById(id);
         return null;
     }
+//    public Inventory deleteInventoryByName(String name, long id){
+//       inventoryRepository.findById(id);
+//       inventoryRepository.delete
+//    }
 
 }
 
