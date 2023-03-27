@@ -4,6 +4,7 @@ import Inventory.Model.Inventory;
 import Inventory.Projections.InventoryI;
 import Inventory.Service.InventoryService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
@@ -48,14 +49,15 @@ public class InventoryController {
         public Inventory addInventory(@RequestBody Inventory inventory) {
          return this.inventoryService.addInventory(inventory);
      }
-     @DeleteMapping("inventory/{id}")
-        public Inventory deleteInventoryByid(@PathVariable("id") long id) {
-        return inventoryService.deleteInventoryById(id);
-     }
-//     @DeleteMapping("inventory/{names}")
-//        public Inventory deleteInventoryByName(@PathVariable("name") String name){
-//
+//     @DeleteMapping("inventory/{id}")
+//        public Inventory deleteInventoryByid(@PathVariable("id") long id) {
+//        return inventoryService.deleteInventoryById(id);
 //     }
+
+     @DeleteMapping("inventory/{names}")
+        public void deleteInventoryByName(@PathVariable String names){
+         inventoryService.deleteInventoryByName(names);
+     }
      /*
      user stories
      as a user I should submit a inventory submission

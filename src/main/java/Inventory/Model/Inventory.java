@@ -28,6 +28,8 @@ public class Inventory {
         @JoinColumn(name = "departmentFK")
         public Department department;
 
-
+        public String getName(){
+           return name;
+        }
 }
 
