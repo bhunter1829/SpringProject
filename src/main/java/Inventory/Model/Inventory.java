@@ -22,6 +22,12 @@ public class Inventory {
         @Column(name = "name")
         public String name;
 
+        @Column(name = "amount")
+        public int amount;
+
+//        @Column(name = "departmentFK")
+//        public Long departmentFK;
+
 
         @ManyToOne
         @JsonBackReference

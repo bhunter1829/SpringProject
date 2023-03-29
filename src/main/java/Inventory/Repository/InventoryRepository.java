@@ -25,6 +25,9 @@ void deleteByName(@PathParam("name") String name);
     @Query("SELECT e from Inventory e")
     List<InventoryI> findNames();
 
+
+    List<Inventory> findAll();
+
 //    @Query("SELECT name FROM Inventory where UPPER(name)=:name")
 //    List <Inventory> findAllByName(String name);
 }
