@@ -62,8 +62,6 @@ VALUES
 ('Flea & Tick Prevention', 15, 4);
 
 
---To return everything with their related department
---select a.name, b.department from inventory a inner join departments b on a.departmentfk = b.department_id
 
 
 --Add a where clause for individual department return
