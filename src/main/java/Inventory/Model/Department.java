@@ -22,6 +22,14 @@ public class Department {
     @Column(name = "department")
     public String department;
 
+    public String getDepartment(){
+        return this.department;
+    }
+
+    public Long getId(){
+        return this.id;
+    }
+
    @OneToMany
    @JsonManagedReference
    @JoinColumn(name = "departmentFK")

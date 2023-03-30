@@ -8,7 +8,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
-import java.util.Locale;
 
 @Service
 
@@ -40,6 +39,9 @@ public class InventoryService {
     /*
     this will let us add an Inventory item
      */
+    public long count(){ return inventoryRepository.count(); }
+
+    public int sum(){ return inventoryRepository.sum(); }
     public Inventory addInventory(Inventory inventory){
         return inventoryRepository.save(inventory);
     }
