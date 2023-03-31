@@ -43,10 +43,15 @@ public class LoginService {
     public Account register(Account account) {
         if (accountRepository.findUserByUsername(account.getUsername()) != null) {
             throw new IllegalStateException("Username already taken.");
+
         }
         long token = (long) (Math.random() * Long.MAX_VALUE);
         account.setSecureToken(token);
         accountRepository.save(account);
         return account;
     }
+
 }
+
+
+

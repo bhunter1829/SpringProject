@@ -23,9 +23,11 @@ public class Account {
     //    should probably be an enum
 
 
+
     public String getUsername() {
         return username;
     }
+
 
     //    every time a user logs in, we should update their secureToken, so that any attempt to modify the user's
 //    sensitive data requires the frontend to also have the token (fake JWT)
