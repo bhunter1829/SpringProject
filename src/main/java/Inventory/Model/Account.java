@@ -21,7 +21,6 @@ public class Account {
     private String username;
     private String password;
     //    should probably be an enum
-    private boolean isAgent;
     //    every time a user logs in, we should update their secureToken, so that any attempt to modify the user's
 //    sensitive data requires the frontend to also have the token (fake JWT)
     private long secureToken;
