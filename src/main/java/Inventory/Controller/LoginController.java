@@ -8,6 +8,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
+
 @RestController
 @CrossOrigin(origins = {"http://localhost:4200", "http://localhost:3000"}, allowCredentials = "true")
 public class LoginController {
@@ -24,12 +25,12 @@ public class LoginController {
         return loginService.login(account);
     }
 
-    @PostMapping("/register")
-    public ResponseEntity<Object>revokeAccount(@RequestBody Account account){
+    @PostMapping("register")
+    public ResponseEntity<Object> register(@RequestBody Account account) {
+        // Delegate the registration to the AccountService class
         try {
             Account registeredAccount = loginService.register(account);
             return ResponseEntity.ok().body(registeredAccount);
-
         } catch (IllegalStateException ex) {
             // If the account already exists, return a 400 Bad Request response with an error message
             return ResponseEntity.badRequest().body(ex.getMessage());
