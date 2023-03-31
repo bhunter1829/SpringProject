@@ -44,6 +44,7 @@ public class InventoryService {
     public int sum(){ return inventoryRepository.sum(); }
     public Inventory addInventory(Inventory inventory){
         return inventoryRepository.save(inventory);
+
     }
     /*
     this will delete an inventory by its id

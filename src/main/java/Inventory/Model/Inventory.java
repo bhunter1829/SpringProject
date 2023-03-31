@@ -25,13 +25,14 @@ public class Inventory {
         @Column(name = "amount")
         public int amount;
 
-//        @Column(name = "departmentFK")
-//        public Long departmentFK;
+        public Long departmentFK;
 
-
+//        public void setDepartmentFK(Department department){
+//                this.department = department;
+//        }
         @ManyToOne
         @JsonBackReference
-        @JoinColumn(name = "departmentFK")
+        @JoinColumn(name = "departmentFK", insertable = false, updatable = false)
         public Department department;
 
         public String getName(){

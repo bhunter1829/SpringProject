@@ -26,6 +26,7 @@ void deleteByName(@PathParam("name") String name);
     @Query("SELECT e from Inventory e")
     List<InventoryI> findNames();
 
+    Inventory save(Inventory inventory);
     List<Inventory> findAll();
     @Query("SELECT SUM(i.amount) FROM Inventory i")
     int sum();
