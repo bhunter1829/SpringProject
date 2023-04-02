@@ -30,6 +30,9 @@ void deleteByName(@PathParam("name") String name);
     List<Inventory> findAll();
     @Query("SELECT SUM(i.amount) FROM Inventory i")
     int sum();
+
+
+    List<Inventory> findAllByName(String name);
 //    @Query("SELECT COUNT (inventory_id) FROM Inventory")
 //    Inventory findCount();
 

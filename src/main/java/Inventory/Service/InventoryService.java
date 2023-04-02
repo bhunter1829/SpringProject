@@ -58,7 +58,9 @@ public class InventoryService {
             inventoryRepository.deleteByName(name.toUpperCase());
         }
 
-
+    public List<Inventory> getInventoryByName(String name) {
+        return inventoryRepository.findAllByName(name);
+    }
 
 
 //    public List<Inventory> getInventoryByName(String name){
