@@ -39,7 +39,15 @@ public class InventoryController {
 
     }
 
-     @GetMapping("inventory/{id}")
+    @GetMapping ("inventory/{name}")
+    public List<Inventory> getInventoryByName(@PathVariable("name") String name){
+        return inventoryService.getInventoryByName(name);
+
+    }
+
+
+
+     @GetMapping("id/{id}")
          public Inventory getInventoryById(@PathVariable("id") long id){
          return inventoryService.getInventoryById(id);
      }
@@ -53,7 +61,7 @@ public class InventoryController {
 //        return inventoryService.deleteInventoryById(id);
 //     }
 
-     @DeleteMapping("inventory/{names}")
+     @DeleteMapping("inventory/remove/{names}")
         public void deleteInventoryByName(@PathVariable String names){
          inventoryService.deleteInventoryByName(names);
      }
