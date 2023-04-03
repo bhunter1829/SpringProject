@@ -3,6 +3,7 @@ package Inventory.Controller;
 import Inventory.Model.Inventory;
 import Inventory.Projections.InventoryI;
 import Inventory.Service.InventoryService;
+import jakarta.websocket.server.PathParam;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
@@ -45,6 +46,11 @@ public class InventoryController {
 
     }
 
+    @PatchMapping ("inventory/{name}/{amount}")
+    public void getInventoryByName(@PathVariable("name") String name, @PathVariable("amount") int amount){
+       inventoryService.patchAmount(name, amount);
+
+    }
 
 
      @GetMapping("id/{id}")

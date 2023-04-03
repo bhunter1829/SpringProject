@@ -62,7 +62,10 @@ public class InventoryService {
         return inventoryRepository.findAllByName(name);
     }
 
-
+    public Inventory patchAmount(String name, int amount){
+        inventoryRepository.updateAmount(name, amount);
+        return null;
+    }
 //    public List<Inventory> getInventoryByName(String name){
 //            return inventoryRepository.findAllByName(name);
 //
