@@ -33,6 +33,10 @@ void deleteByName(@PathParam("name") String name);
 
 
     List<Inventory> findAllByName(String name);
+    @Modifying
+    @Transactional
+    @Query("UPDATE Inventory i SET i.amount = :amount WHERE i.name = :name")
+    void updateAmount(@PathParam("name") String name, @PathParam("amount") int amount);
 //    @Query("SELECT COUNT (inventory_id) FROM Inventory")
 //    Inventory findCount();
 
