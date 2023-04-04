@@ -6,7 +6,7 @@ import jakarta.persistence.*;
 import lombok.*;
 
 
-
+        //Contains Inventory data
 @Entity
 @Data
 @AllArgsConstructor
@@ -27,16 +27,11 @@ public class Inventory {
 
         public Long departmentFK;
 
-//        public void setDepartmentFK(Department department){
-//                this.department = department;
-//        }
         @ManyToOne
         @JsonBackReference
         @JoinColumn(name = "departmentFK", insertable = false, updatable = false)
         public Department department;
 
-        public String getName(){
-           return name;
-        }
+
 }
 

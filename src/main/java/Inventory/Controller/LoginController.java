@@ -15,28 +15,29 @@ public class LoginController {
 
 
     LoginService loginService;
-    @Autowired
 
-    public LoginController(LoginService loginService){
+    @Autowired
+    public LoginController(LoginService loginService) {
         this.loginService = loginService;
     }
+        //post http endpoint, takes in json request body, attempts login, throws exception if invalid.
     @PostMapping("login")
     public Account login(@RequestBody Account account) throws UnauthorizedUserException {
         return loginService.login(account);
     }
-
+        //post http endpoint, takes in json request body, attempts register
     @PostMapping("register")
     public ResponseEntity<Object> register(@RequestBody Account account) {
-        // Delegate the registration to the AccountService class
         try {
             Account registeredAccount = loginService.register(account);
             return ResponseEntity.ok().body(registeredAccount);
+            //service will return exception + message: username taken if username exists
         } catch (IllegalStateException ex) {
-            // If the account already exists, return a 400 Bad Request response with an error message
+            // If the username already exists, return a 400 Bad Request response with an error message
             return ResponseEntity.badRequest().body(ex.getMessage());
         }
     }
-
+        //handles UnauthorizedUserException thrown by login, returns 401 and message.
     @ExceptionHandler(UnauthorizedUserException.class)
     @ResponseStatus(value = HttpStatus.UNAUTHORIZED, reason = "invalid login credentials!")
     public void handleUnauthorized(){

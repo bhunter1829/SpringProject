@@ -27,10 +27,11 @@ public class LoginService {
      * @param account
      * @return
      */
+    //takes Account object, attempts to log in.
     public Account login(Account account) throws UnauthorizedUserException {
         Account actual = accountRepository.findUserByUsername(account.getUsername());
         if (actual.getPassword().equals(account.getPassword())) {
-//            generate a new token for this account
+    //generate a new token for this account
             long token = (long) (Math.random() * Long.MAX_VALUE);
             actual.setSecureToken(token);
             accountRepository.save(actual);
@@ -40,10 +41,11 @@ public class LoginService {
         }
     }
 
+    //takes Account object, register new user
     public Account register(Account account) {
+    //check to see if the username already exists, if it does throw exception.
         if (accountRepository.findUserByUsername(account.getUsername()) != null) {
             throw new IllegalStateException("Username already taken.");
-
         }
         long token = (long) (Math.random() * Long.MAX_VALUE);
         account.setSecureToken(token);
