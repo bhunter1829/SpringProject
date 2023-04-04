@@ -66,16 +66,10 @@ public class InventoryService {
         inventoryRepository.updateAmount(name, amount);
         return null;
     }
-//    public List<Inventory> getInventoryByName(String name){
-//            return inventoryRepository.findAllByName(name);
-//
-//
-//    }
+
 
 }
 
 
 
-//repository
-//public interface name extends JpaRepository<Inventory, Int>{
 

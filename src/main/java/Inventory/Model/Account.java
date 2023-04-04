@@ -7,7 +7,7 @@ import lombok.*;
 
 import java.util.List;
 
-
+    //Contains Account data
 @Entity
 @Data
 @AllArgsConstructor
@@ -24,19 +24,11 @@ public class Account {
 
 
 
-    public String getUsername() {
-        return username;
-    }
+
 
 
     //    every time a user logs in, we should update their secureToken, so that any attempt to modify the user's
 //    sensitive data requires the frontend to also have the token (fake JWT)
     private long secureToken;
-//    @OneToMany
-//    @JoinColumn(name = "userFK")
-//    @JsonManagedReference
-//    private List<Ticket> tickets;
-//    /*
-//    Many users belong to one department
-//     */
+
 }
