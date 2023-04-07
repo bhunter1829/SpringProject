@@ -9,9 +9,10 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+@CrossOrigin(origins = {"*"})
 @RestController
 //@CrossOrigin(origins = {"http://ec2-54-204-180-31.compute-1.amazonaws.com:4200/", "http://localhost:4200", "http://localhost:3000"}, allowCredentials = "true")
-@CrossOrigin(origins = {"*"})
+
 public class LoginController {
 
 

@@ -10,10 +10,9 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 
-
+@CrossOrigin(origins = {"*"})
 @RestController
 //@CrossOrigin(origins = {"http://ec2-54-204-180-31.compute-1.amazonaws.com:4200/", "http://localhost:4200", "http://localhost:3000"}, allowCredentials = "true")
-@CrossOrigin(origins = {"*"})
 public class InventoryController {
     InventoryService inventoryService;
 
