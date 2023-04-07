@@ -27,11 +27,11 @@ public class LoginService {
      * @param account
      * @return
      */
-    //takes Account object, attempts to log in.
+    //takes Account object, attempts to log in. If username and password don't match, throw error, 401
     public Account login(Account account) throws UnauthorizedUserException {
         Account actual = accountRepository.findUserByUsername(account.getUsername());
         if (actual.getPassword().equals(account.getPassword())) {
-    //generate a new token for this account
+//            generate a new token for this account
             long token = (long) (Math.random() * Long.MAX_VALUE);
             actual.setSecureToken(token);
             accountRepository.save(actual);
